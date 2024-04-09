@@ -28,7 +28,7 @@ const ChatComponent = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer`,
+            Authorization: ``,
             'OpenAI-Organization': ''
           }
         }
