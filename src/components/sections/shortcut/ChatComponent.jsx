@@ -28,8 +28,8 @@ const ChatComponent = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer`,
-            'OpenAI-Organization': ''
+            Authorization: `Bearer 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`,
+            'OpenAI-Organization': 'org-Zoq0Vo0ZOAvCp7XF7d7KYVfD'
           }
         }
       );
