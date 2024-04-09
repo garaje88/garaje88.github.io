@@ -1,0 +1,15 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Search from '@components/sections/shortcut/Search.astro';
+import Results from '@components/sections/shortcut/Results.astro';
+import ChatComponent from "@components/sections/shortcut/ChatComponent.jsx";
+---
+
+<Layout title="Welcome to garaje88 - ShortCuts">
+	<main class="flex flex-col gap-y-20 md:gap-y-30 overflow-hidden">
+		
+		<Search/>
+		<ChatComponent client:load />
+		
+	</main>
+</Layout>

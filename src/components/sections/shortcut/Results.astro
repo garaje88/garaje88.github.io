@@ -1,0 +1,39 @@
+---
+import ServiceBasic from "@components/cards/ServiceBasic.astro";
+import Container from "@components/shared/Container.astro";
+import Paragraph from "@components/shared/Paragraph.astro";
+import Title from "@components/shared/Title.astro";
+
+type ServicesProps = {
+    title: string;
+    description: string;
+};
+
+export interface Props {
+    data: any;
+}
+const { data } = Astro.props;
+---
+
+<section id="results">
+    <Container className="space-y-8 md:sapce-y-10">
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+            <Title>
+                AI generated results
+            </Title>
+            <Paragraph>
+                results are generated for the following IDEs
+            </Paragraph>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {
+                    data.map((service: ServicesProps) => {
+                    return (
+                            <ServiceBasic title={service.title} description={service.description}>
+                            </ServiceBasic>
+                            );
+                    })
+            }
+        </div>
+    </Container>
+</section>
