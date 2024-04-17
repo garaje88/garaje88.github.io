@@ -1,8 +1,9 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Search from '@components/sections/shortcut/Search.astro';
-import Results from '@components/sections/shortcut/Results.astro';
 import ChatComponent from "@components/sections/shortcut/ChatComponent.jsx";
+
+//const isProd = import.meta.env.OPENAI_API_KEY2;
 ---
 
 <Layout title="Welcome to garaje88 - ShortCuts">
@@ -10,6 +11,7 @@ import ChatComponent from "@components/sections/shortcut/ChatComponent.jsx";
 		
 		<Search/>
 		<ChatComponent client:load />
-		
+		<!--<p>{isProd}</p> -->
+
 	</main>
 </Layout>
