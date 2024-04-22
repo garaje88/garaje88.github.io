@@ -1,0 +1,16 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/sections/skoovify/Hero.astro';
+import Services from '@components/sections/skoovify/Services.astro';
+import AboutUs from '@components/sections/skoovify/AboutUs.astro';
+import CTA from '@components/sections/CTA.astro';
+---
+
+<Layout title="skoovify">
+	<main class="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden">
+		<Hero/>
+		<Services/>
+		<AboutUs/>
+		<CTA/>
+	</main>
+</Layout>
