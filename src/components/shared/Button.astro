@@ -5,7 +5,7 @@ export interface Props{
     variant:"primary"|"secondary"
 }
 
-const {idClass, className, variant} = Astro.props
+const {className, variant} = Astro.props
 
 const getThemeStyle = (variant:"primary"|"secondary")=>{
     if (variant === "primary") {
