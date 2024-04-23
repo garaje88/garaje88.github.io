@@ -3,7 +3,7 @@ import { createPayload, callChatGPTAPI } from '@utils/apiChatGpt';
 import MessageComponent from './MessageComponent.jsx';
 
 const ChatComponent = () => {
-  const [input, setInput] = useState('save all tabs');
+  const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
 
   const handleInputChange = (e) => {
@@ -12,13 +12,11 @@ const ChatComponent = () => {
 
   const clearInputAndMessages = () => {
     setInput('');
-    //setMessages([]);
   }; 
 
   const handleSendMessage = async () => {
     try {
-      console.log(123);
-      setMessages("");
+      
       if (!input.trim()) {
           throw new Error("Input is empty. Please provide some text.");
       }
@@ -36,6 +34,7 @@ const ChatComponent = () => {
 
       const contentResponse = response.data.choices[0].message.content;
       const newMessage = JSON.parse(contentResponse.replace(/```json\n|```|\n/g, ""));
+      
       //const newMessage = JSON.parse("[\n    {\n        \"nameide\": \"IntelliJ IDEA\",\n        \"shortcuts\": [\n            { \"so\": \"Windows/Linux\", \"shortcut\": \"Alt + Enter\" },\n            { \"so\": \"macOS\", \"shortcut\": \"Option + Enter\" }\n        ],\n        \"note\": \"Pressing the shortcut will suggest imports for unresolved classNamees in your Java file.\"\n    },\n    {\n        \"nameide\": \"Eclipse\",\n        \"shortcuts\": [\n            { \"so\": \"Windows/Linux\", \"shortcut\": \"Ctrl + Shift + O\" },\n            { \"so\": \"macOS\", \"shortcut\": \"Cmd + Shift + O\" }\n        ],\n        \"note\": \"Using this shortcut will organize imports in your Java className.\"\n    },\n    {\n        \"nameide\": \"Visual Studio Code\",\n        \"shortcuts\": [\n            { \"so\": \"Windows/Linux\", \"shortcut\": \"Ctrl + Shift + I\" },\n            { \"so\": \"macOS\", \"shortcut\": \"Cmd + Shift + I\" }\n        ],\n        \"note\": \"Triggering this shortcut will organize imports in your Java file.\"\n    }\n]");
       setMessages(newMessage);	 
       
