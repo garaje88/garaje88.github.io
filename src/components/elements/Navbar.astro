@@ -1,7 +1,8 @@
 ---
-import BtnLink from "../shared/BtnLink.astro";
-import Container from "../shared/Container.astro";
-import  Navitem from "../shared/Navitem.astro";
+import BtnLink from "@components/shared/BtnLink.astro";
+import Container from "@components/shared/Container.astro";
+import  Navitem from "@components/shared/Navitem.astro";
+import { ViewTransitions } from 'astro:transitions';
 
 const navItems = [
     {
@@ -69,3 +70,4 @@ const navItems = [
         </nav>
     </Container>
 </header>
+<ViewTransitions />
