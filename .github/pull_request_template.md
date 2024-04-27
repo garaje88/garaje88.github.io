@@ -5,7 +5,7 @@
 What type of change does this PR introduce?
 
 - [ ] Bug fix (a change that fixes an issue and does not break existing functionality)
-- [ ] New feature (a change that adds functionality and does not break existing functionality)
+- [X] New feature (a change that adds functionality and does not break existing functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
 
@@ -29,14 +29,14 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 
 Mark what applies with "x".
 
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
-- [ ] Changes have been updated in the changelog (if applicable)
+- [X] My code follows the style guidelines of this project
+- [X] I have performed a self-review of my own code
+- [X] I have commented my code, particularly in hard-to-understand areas
+- [X] I have made corresponding changes to the documentation
+- [X] My changes generate no new warnings
+- [X] I have added tests that prove my fix is effective or that my feature works
+- [X] New and existing unit tests pass locally with my changes
+- [X] Changes have been updated in the changelog (if applicable)
 
 ## Additional Context
 
