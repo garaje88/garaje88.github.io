@@ -3,7 +3,7 @@ import BtnLink from "@components/shared/BtnLink.astro";
 import Container from "@components/shared/Container.astro";
 import  Navitem from "@components/shared/Navitem.astro";
 import { ViewTransitions } from 'astro:transitions';
-import { callFlagsId } from '@utils/flagsmithClient.ts';
+import console from "console";
 
 const navItems = [
     {
@@ -20,7 +20,23 @@ const navItems = [
     }
 ]
 
-const featureEnabled = await callFlagsId('92334', 'href_skoovify');
+const FLAGSMITH_BASE_URL = import.meta.env.PUBLIC_FLAGSMITH_BASE_URL;
+const FLAGSMITH_API_KEY = import.meta.env.PUBLIC_FLAGSMITH_API_KEY;
+console.log(FLAGSMITH_BASE_URL);
+console.log(FLAGSMITH_API_KEY);
+
+const url = `${FLAGSMITH_BASE_URL}?identifier=92334&feature=href_skoovify`;
+const response = await fetch(url,
+  {
+    method: 'GET',
+    headers: {
+        'Content-Type':'application/json',
+        'X-Environment-Key': FLAGSMITH_API_KEY,
+    },
+  });
+
+const json = await response.json();
+const featureEnabled = !!json.enabled;
 ---
 
 <header class="absolute inset-x-0 top-0 z-50 py-6">
