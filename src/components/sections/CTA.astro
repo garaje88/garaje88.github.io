@@ -1,9 +1,8 @@
 ---
 import Button from "@components/shared/Button.astro";
 import Container from "@components/shared/Container.astro";
-import { callFlagsId } from '@utils/flagsmithClient.ts';
 
-const featureEnabled = await callFlagsId('92334', 'href_skoovify');
+let featureEnabled = true;
 ---
 
 <section  id="cta" class="pb-20">

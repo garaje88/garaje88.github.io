@@ -1,37 +1,58 @@
 import axios from 'axios';
 
-const FLAGSMITH_BASE_URL = import.meta.env.PUBLIC_FLAGSMITH_BASE_URL;
-const PUBLIC_FLAGSMITH_API_KEY = import.meta.env.PUBLIC_FLAGSMITH_API_KEY;
+interface IFlagsmithClient {
+    baseURL: string;
+    apiKey: string;
+}
 
-export async function callFlagsId(identifier: string, feature: string): Promise<boolean> {
-    if (!FLAGSMITH_BASE_URL) {
-        throw new Error('API flagsmith url is not defined. Please check your .env file.');
-    }
-    if (!PUBLIC_FLAGSMITH_API_KEY) {
-        throw new Error('API flagsmith key is not defined. Please check your .env file.');
-    }
+class FlagsmithClient {
+    private baseURL: string;
+    private apiKey: string;
 
-    const url = `${FLAGSMITH_BASE_URL}?identifier=${identifier}&feature=${feature}`;
-
-    try {
-        const response = await axios.get(url, {
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Environment-Key': PUBLIC_FLAGSMITH_API_KEY
-            }
-        });
-        
-        return !!response.data.enabled;
-    } catch (error) {
-        // Mejor manejo de errores diferenciando entre errores de HTTP y otros tipos de errores
-        if (axios.isAxiosError(error)) {
-            // Error de Axios, probablemente un error de HTTP
-            console.error(`HTTP error! status: ${error.response?.status}`, error.message);
-        } else {
-            // Otro tipo de error
-            console.error('An unexpected error occurred:', error);
+    constructor({ baseURL, apiKey }: IFlagsmithClient) {
+        if (!baseURL || !apiKey) {
+            throw new Error('Flagsmith client configuration is incomplete. Please check your environment settings.');
         }
-        // Lanzar un error para ser manejado por el consumidor de la función
-        throw error;
+        this.baseURL = baseURL;
+        this.apiKey = apiKey;
+    }
+
+    async checkFeatureEnabled(identifier: string, feature: string): Promise<boolean> {
+        const url = `${this.baseURL}?identifier=${identifier}&feature=${feature}`;
+        try {
+            const response = await axios.get(url, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Environment-Key': this.apiKey
+                }
+            });
+            return !!response.data.enabled;
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                console.error(`HTTP error! status: ${error.response?.status}`, error.message);
+            } else {
+                console.error('An unexpected error occurred:', error);
+            }
+            throw error;
+        }
     }
 }
+
+export default FlagsmithClient;
+
+//implementation
+/*
+
+const flagsmithClient = new FlagsmithClient({
+    baseURL: import.meta.env.PUBLIC_FLAGSMITH_BASE_URL,
+    apiKey: import.meta.env.PUBLIC_FLAGSMITH_API_KEY
+});
+
+let featureEnabled = false;
+try {
+    featureEnabled = await flagsmithClient.checkFeatureEnabled('92334', 'href_skoovify');
+} catch (error) {
+    console.error('Failed to check feature:', error);
+}
+
+*/
