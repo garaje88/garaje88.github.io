@@ -16,6 +16,13 @@ permissions:
 
 jobs:
   build:
+    env:
+      PUBLIC_OPENAI_API_BASE_URL: ${{ vars.PUBLIC_OPENAI_API_BASE_URL }}
+      PUBLIC_OPENAI_API_KEY: ${{ secrets.PUBLIC_OPENAI_API_KEY }}
+      PUBLIC_OPENAI_API_ORGANIZATION: ${{ secrets.PUBLIC_OPENAI_API_ORGANIZATION }}
+      PUBLIC_OPENAI_API_MODEL: ${{ vars.PUBLIC_OPENAI_API_MODEL }}
+      PUBLIC_FLAGSMITH_BASE_URL: ${{ vars.PUBLIC_FLAGSMITH_BASE_URL }}
+      PUBLIC_FLAGSMITH_API_KEY: ${{ secrets.PUBLIC_FLAGSMITH_API_KEY }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
@@ -24,7 +31,7 @@ jobs:
         uses: withastro/action@v2
       - name: revision variables de entorno
         run: | 
-          echo "PUBLIC_OPENAI_API_BASE_URL: ${{ vars.PUBLIC_OPENAI_API_BASE_URL }}"
+          echo "PUBLIC_OPENAI_API_BASE_URL: ${{ env.PUBLIC_OPENAI_API_BASE_URL }}"
       
   deploy:
     needs: build
