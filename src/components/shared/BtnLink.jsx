@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CallFlagsId } from "@utils/FlagsmithClient.ts";
+import { callFlagsId } from "@utils/flagsmithClient";
 
 const BtnLink = ({ href, text, className, variant }) => {
     const [featureEnabled, setFeatureEnabled] = useState(false);
@@ -7,7 +7,7 @@ const BtnLink = ({ href, text, className, variant }) => {
     useEffect(() => {
         const handleSendMessage = async () => {
             try {
-                const enabled = await CallFlagsId('92334', 'href_skoovify');
+                const enabled = await callFlagsId('92334', 'href_skoovify');
                 setFeatureEnabled(enabled);
             } catch (error) {
                 console.error('Error fetching feature status:', error);
