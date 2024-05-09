@@ -1,4 +1,3 @@
-/// <reference types="astro/client" />
 interface ImportMetaEnv {
     readonly PUBLIC_OPENAI_API_KEY: string;
     readonly PUBLIC_OPENAI_API_BASE_URL: string;

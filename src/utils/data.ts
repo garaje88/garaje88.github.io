@@ -40,4 +40,19 @@ const servicesGaraje88 = [
     }
 ];
 
-export { servicesSkoovify, servicesGaraje88 };
+const navItems = [
+    {
+        href:"/",
+        text:"Home"
+    },
+    {
+        href:"/shortcuts",
+        text:"ShortCuts"
+    },
+    {
+        href:"/skoovify",
+        text:"Skoovify"
+    }
+];
+
+export { servicesSkoovify, servicesGaraje88, navItems };

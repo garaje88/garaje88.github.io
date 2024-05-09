@@ -1,8 +1,8 @@
 ---
 import Button from "@components/shared/Button.astro";
 import Container from "@components/shared/Container.astro";
+import BtnLink from "@components/shared/BtnLink.jsx";
 
-let featureEnabled = true;
 ---
 
 <section  id="cta" class="pb-20">
@@ -43,13 +43,10 @@ let featureEnabled = true;
           font-bold text-heading-1">
           <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">discover, create, know</span> the new world with artificial intelligence
         </h1>
-        {featureEnabled &&
-          <div class="mx-auto max-w-md sm:max-w-xl pt-10">
-            <Button idClass="next3" variant={"primary"}>
-              <span class="text-white relative z-[5]">start Skoovify</span>
-            </Button>
-          </div>
-        }
+
+        <div class="mx-auto max-w-md sm:max-w-xl pt-10">
+          <BtnLink text="start Skoovify" href="https://www.skoovify.com" className="flex justify-center w-full sm:w-max " variant="primary" client:load />
+        </div>
       </div>
     </div>
   </Container>
