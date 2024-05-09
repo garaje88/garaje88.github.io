@@ -23,7 +23,7 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v2
       - name: revision variables de entorno
-        run: echo ${{ env.PUBLIC_OPENAI_API_BASE_URL }}
+        run: echo "PUBLIC_OPENAI_API_BASE_URL: ${{ vars.PUBLIC_OPENAI_API_BASE_URL }}"
       
   deploy:
     needs: build
