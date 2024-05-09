@@ -3,7 +3,7 @@ import axios from 'axios';
 const FLAGSMITH_BASE_URL = import.meta.env.PUBLIC_FLAGSMITH_BASE_URL;
 const PUBLIC_FLAGSMITH_API_KEY = import.meta.env.PUBLIC_FLAGSMITH_API_KEY;
 
-export async function CallFlagsId(identifier: string, feature: string): Promise<boolean> {
+export async function callFlagsId(identifier: string, feature: string): Promise<boolean> {
     
     if (!FLAGSMITH_BASE_URL) {
         throw new Error('API flagsmith url is not defined. Please check your .env file.');
