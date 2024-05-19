@@ -1,3 +1,4 @@
+/// <reference path="../.astro/db-types.d.ts" />
 interface ImportMetaEnv {
     readonly PUBLIC_OPENAI_API_KEY: string;
     readonly PUBLIC_OPENAI_API_BASE_URL: string;
