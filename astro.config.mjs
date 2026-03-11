@@ -7,5 +7,6 @@ import db from "@astrojs/db";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react(), db()],
-  site: 'https://garaje88.github.io'
+  site: 'https://garaje88.github.io',
+  output: 'server',
 });

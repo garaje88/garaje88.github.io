@@ -63,18 +63,14 @@ const footerCompany = [
         itemLink:"#"
     }
 ]
-const footerLegal = [
-    {
-        itemText:"Claim",
-        itemLink:"/#"
-    },
+const footerLegalElaScout = [
     {
         itemText:"Privacy",
-        itemLink:"#"
+        itemLink:"/privacy"
     },
     {
         itemText:"Terms",
-        itemLink:"#"
+        itemLink:"/terms"
     }
 ]
 ---
@@ -159,12 +155,12 @@ const footerLegal = [
                 <FooterNav title={"Company"} navItems={footerCompany}/>
                 <FooterNav title={"Solutions"} navItems={footerNav1}/>
             </GroupFooterNav>
-
-            <GroupFooterNav>
-                <FooterNav title={"Support"} navItems={footerSupport}/>
-                <FooterNav title={"Ressources"} navItems={footerLegal}/>
-            </GroupFooterNav>
             -->
+            <GroupFooterNav>
+                <!--<FooterNav title={"Support"} navItems={footerSupport}/>-->
+                <FooterNav title={"ElaScout"} navItems={footerLegalElaScout}/>
+            </GroupFooterNav>
+            
         </div>
     </Container>
     <div class=" bg-gradient-to-tl from-box-bg py-2 relative">

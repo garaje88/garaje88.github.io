@@ -2,7 +2,37 @@
 import Button from "@components/shared/Button.astro";
 import Container from "@components/shared/Container.astro";
 import Paragraph from "@components/shared/Paragraph.astro";
+import { db, UserStarted, NOW } from 'astro:db';
+import confetti from 'canvas-confetti';
+import Toast from '@components/shared/Toast.jsx';
 
+let showToast = false;
+let toastMessage = '';
+
+if (Astro.request.method === 'POST') {
+    try {
+      const formData = await Astro.request.formData();
+      const emailstarted = formData.get('emailstarted');
+      console.log(emailstarted);
+      if (typeof emailstarted === 'string' && validateEmail(emailstarted)) {
+        console.log('insert');
+        await db.insert(UserStarted).values({ email:emailstarted, country:'CO', registry: NOW });
+      }else{
+        showToast = true;
+        toastMessage= 'xxxxxxxxxxxx';
+      }
+    } catch (error) {
+        console.log(error);
+        toastMessage = 'sdsdsds';
+        showToast = true;
+    }finally{
+        await setTimeout(() => showToast = false, 3000);
+    }
+}
+
+function validateEmail(email:string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 ---
 
 <section class="relative pt-32 lg:pt-36">
@@ -26,16 +56,17 @@ import Paragraph from "@components/shared/Paragraph.astro";
                 Are you ready for a completely new social media experience? Get ready to welcome Skivoofy: The platform where creativity 
                 and innovation come together to create a world of endless possibilities!
             </Paragraph>
+            {showToast && <Toast message={toastMessage} type='error' />}  
             <div class="mt-10  w-full flex max-w-md mx-auto lg:mx-0">
                 <div class="flex sm:flex-row flex-col gap-5 w-full">
-                    <form action="#"  class="py-1 pl-6 w-full pr-1 flex gap-3 items-center text-heading-3 shadow-lg shadow-box-shadow
+                    <form method="POST"  class="py-1 pl-6 w-full pr-1 flex gap-3 items-center text-heading-3 shadow-lg shadow-box-shadow
                       border border-box-border bg-box-bg rounded-full ease-linear focus-within:bg-body  focus-within:border-primary">
                         <span class="min-w-max pr-2 border-r border-box-border">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
                             </svg>                                                                  
                         </span>
-                        <input type="email" name="" id="" placeholder="johndoe@gmail.com" class="w-full py-3 outline-none bg-transparent">
+                        <input type="email" name="emailstarted" id="emailstarted" placeholder="johndoe@gmail.com" class="w-full py-3 outline-none bg-transparent">
                         <Button idClass="next1" variant={"primary"} className={"min-w-max text-white"}>
                             <span class="hidden sm:flex relative z-[5]">
                                 Get Started

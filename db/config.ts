@@ -1,21 +1,14 @@
-import { defineDb, defineTable, column } from 'astro:db';
+import { defineDb, defineTable, column, NOW  } from 'astro:db';
 
-const Comment = defineTable({
+const UserStarted = defineTable({
   columns: {
-    // Una cadena de texto.
-    author: column.text(),
-    // Un valor entero.
-    likes: column.number(),
-    // Un valor verdadero o falso.
-    flagged: column.boolean(),
-    // Valores de fecha/hora consultados como objetos de fecha de JavaScript.
-    published: column.date(),
-    // Un objeto JSON sin tipo.
-    metadata: column.json(),
+    email: column.text({ unique: true}),
+    country: column.text(),
+    registry: column.date({ default: NOW })
   }
 });
 
 // https://astro.build/db/config
 export default defineDb({
-  tables: { Comment}
+  tables: { UserStarted }
 });

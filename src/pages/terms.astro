@@ -1,0 +1,298 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Container from '@components/shared/Container.astro';
+import Paragraph from '@components/shared/Paragraph.astro';
+---
+
+<Layout title="Términos de Servicio ElaScout - garaje88">
+    <main class="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden">
+
+        <!-- Hero Header -->
+        <section class="relative pt-32 lg:pt-36 pb-16">
+            <!-- Decorative blobs -->
+            <span class="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90"></span>
+            <span class="absolute -right-10 top-20 w-32 h-32 rotate-45 skew-x-12 rounded-3xl bg-indigo-500 blur-xl opacity-40 hidden lg:block"></span>
+            <span class="absolute right-0 bottom-0 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-30"></span>
+
+            <Container className={"flex flex-col lg:flex-row gap-10 lg:gap-12 items-center"}>
+                <div class="relative flex flex-col items-center text-center lg:text-left lg:items-start lg:flex-1 lg:w-1/2 max-w-3xl mx-auto lg:mx-0">
+                    <span class="px-4 py-1.5 rounded-full border border-box-border bg-box-bg text-heading-3 text-sm font-medium mb-6">
+                        Legal
+                    </span>
+                    <h1 class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight font-bold text-heading-1">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">Términos</span> de Servicio - ElaScout
+                    </h1>
+                    <Paragraph className="mt-8">
+                        Al utilizar ElaScout aceptas estos términos. Por favor léelos detenidamente antes de acceder a la plataforma.
+                    </Paragraph>
+                    <p class="mt-4 text-sm text-heading-3">
+                        Fecha de vigencia: <span class="font-semibold text-heading-2">11 de marzo de 2026</span>
+                    </p>
+                </div>
+
+                <!-- Image -->
+                <div class="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none mx-auto max-w-sm w-full">
+                    <div class="absolute rotate-45 -left-5 top-1/2 w-16 h-16 bg-gradient-to-br from-indigo-500 to-primary blur-3xl opacity-50"></div>
+                    <div class="absolute p-1 -top-4 right-0 w-20 h-20 bg-gradient-to-br from-primary to-green-400 rounded-full blur-3xl opacity-60"></div>
+                    <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-indigo-600 to-primary opacity-40 blur-2xl left-0 bottom-0"></span>
+                    <img
+                        src="/images/dev-with-c-1.webp"
+                        alt="Terms of service illustration"
+                        width="1240"
+                        height="1385"
+                        class="w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-80 lg:max-h-full"
+                    />
+                    <div class="w-full h-72 lg:h-96"></div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Content Sections -->
+        <section class="relative pb-20">
+            <span class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 blur-2xl opacity-10 w-48 h-36 rounded-full rotate-12 skew-x-6 bg-indigo-600"></span>
+
+            <Container className={"flex flex-col gap-6 max-w-4xl"}>
+
+                <!-- 1. Aceptación -->
+                <div class="relative p-8 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-600 to-primary text-white font-bold text-sm shrink-0">01</span>
+                        <h2 class="text-xl font-semibold text-heading-1">Aceptación de los Términos</h2>
+                    </div>
+                    <Paragraph>
+                        Al acceder y utilizar la plataforma ElaScout, usted acepta quedar vinculado por estos Términos de Servicio, nuestra Política de Privacidad y cualquier otra política que ElaScout publique periódicamente. Si no está de acuerdo, le rogamos que no acceda ni utilice el Servicio.
+                    </Paragraph>
+                    <Paragraph className="mt-3">
+                        Estos Términos constituyen un acuerdo legalmente vinculante. Si accede en nombre de una organización, declara que tiene autoridad para vincularla con estos Términos.
+                    </Paragraph>
+                </div>
+
+                <!-- 2. Descripción -->
+                <div class="relative p-8 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-green-500 text-white font-bold text-sm shrink-0">02</span>
+                        <h2 class="text-xl font-semibold text-heading-1">Descripción del Servicio</h2>
+                    </div>
+                    <Paragraph className="mb-5">
+                        ElaScout es una plataforma SaaS B2B dirigida a organizaciones deportivas, clubes de fútbol, agencias de representación y profesionales del scouting. Ofrece:
+                    </Paragraph>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        {[
+                            "Gestión centralizada de perfiles de atletas de alto rendimiento.",
+                            "Evaluaciones estandarizadas de tipo físico, técnico y táctico.",
+                            "Visualización de datos mediante gráficos de evolución y radar charts.",
+                            "Gestión de organizaciones con control de acceso basado en roles.",
+                            "Historial de clubes, títulos y atributos físicos de los deportistas.",
+                        ].map(item => (
+                            <div class="flex items-start gap-3 p-4 rounded-2xl border border-box-border bg-body">
+                                <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
+                                <p class="text-heading-3 text-sm">{item}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <p class="mt-5 text-sm text-heading-3 border-t border-box-border pt-4">
+                        ElaScout se reserva el derecho de modificar, suspender o interrumpir cualquier aspecto del Servicio en cualquier momento, sin responsabilidad frente al usuario.
+                    </p>
+                </div>
+
+                <!-- 3. Registro -->
+                <div class="relative p-8 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-green-500 to-green-400 text-white font-bold text-sm shrink-0">03</span>
+                        <h2 class="text-xl font-semibold text-heading-1">Registro y Cuenta de Usuario</h2>
+                    </div>
+                    <Paragraph className="mb-4">
+                        El acceso requiere una cuenta de usuario. El registro se realiza
+                        <span class="font-semibold text-heading-2"> exclusivamente mediante Google OAuth</span>;
+                        ElaScout no admite registros con usuario/contraseña propios ni mediante otros proveedores.
+                    </Paragraph>
+                    <p class="text-heading-3 md:text-lg mb-3">Al registrarse, usted acepta que:</p>
+                    <ul class="space-y-2">
+                        {[
+                            "La información de su cuenta Google sea precisa y esté actualizada.",
+                            "Es el único responsable de mantener la confidencialidad de su sesión.",
+                            "Notificará a ElaScout de inmediato cualquier uso no autorizado de su cuenta.",
+                            "ElaScout no será responsable de pérdidas por incumplimiento de esta obligación.",
+                        ].map(item => (
+                            <li class="flex items-start gap-2 text-heading-3 md:text-lg">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-500 mt-2.5 shrink-0"></span>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <!-- 4. Uso aceptable -->
+                <div class="relative p-8 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-700 text-white font-bold text-sm shrink-0">04</span>
+                        <h2 class="text-xl font-semibold text-heading-1">Uso Aceptable</h2>
+                    </div>
+                    <Paragraph className="mb-5">
+                        El Servicio está destinado al tratamiento de información de deportistas reales. Dado que puede incluir datos de carácter personal, usted se compromete a:
+                    </Paragraph>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        {[
+                            { ok: true,  text: "Obtener consentimiento expreso de cada atleta antes de introducir sus datos (GDPR)." },
+                            { ok: true,  text: "Utilizar el Servicio solo con fines legítimos de scouting y gestión deportiva." },
+                            { ok: false, text: "No introducir datos falsos o sin conocimiento y consentimiento del interesado." },
+                            { ok: false, text: "No acceder sin autorización a datos de otras organizaciones o usuarios." },
+                            { ok: false, text: "No usar el Servicio para actividades ilegales, discriminatorias o contrarias al orden público." },
+                            { ok: false, text: "No realizar ingeniería inversa ni sobrecargar la infraestructura de ElaScout." },
+                        ].map(item => (
+                            <div class="flex items-start gap-3 p-4 rounded-2xl border border-box-border bg-body">
+                                <span class={`w-1.5 h-1.5 rounded-full mt-2 shrink-0 ${item.ok ? 'bg-green-500' : 'bg-red-400'}`}></span>
+                                <p class="text-heading-3 text-sm">{item.text}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <p class="mt-5 text-sm text-heading-3 border-t border-box-border pt-4">
+                        ElaScout actúa como <span class="font-semibold text-heading-2">encargado del tratamiento</span> en los términos del GDPR. Usted es el responsable del cumplimiento de la normativa de protección de datos.
+                    </p>
+                </div>
+
+                <!-- 5. Organizaciones y roles -->
+                <div class="relative p-8 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-orange-400 text-white font-bold text-sm shrink-0">05</span>
+                        <h2 class="text-xl font-semibold text-heading-1">Organizaciones y Roles</h2>
+                    </div>
+                    <Paragraph className="mb-5">
+                        El Servicio permite crear organizaciones e invitar usuarios mediante códigos de invitación. Existen cuatro roles con distintos niveles de acceso:
+                    </Paragraph>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        {[
+                            { role: "Admin", color: "from-indigo-600 to-primary", desc: "Control total sobre la organización: gestión de miembros, roles, configuración y eliminación." },
+                            { role: "Coach", color: "from-primary to-green-500", desc: "Acceso completo a perfiles de atletas y evaluaciones. Puede crear y editar registros." },
+                            { role: "Scout", color: "from-green-500 to-green-400", desc: "Puede crear y gestionar perfiles de atletas y registrar evaluaciones." },
+                            { role: "Viewer", color: "from-gray-400 to-gray-500", desc: "Acceso de solo lectura a los perfiles y evaluaciones de la organización." },
+                        ].map(r => (
+                            <div class="p-5 rounded-2xl border border-box-border bg-body">
+                                <div class={`inline-flex px-3 py-1 rounded-full text-white text-xs font-bold bg-gradient-to-r mb-3 ${r.color}`}>{r.role}</div>
+                                <p class="text-heading-3 text-sm">{r.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <p class="mt-5 text-sm text-heading-3 border-t border-box-border pt-4">
+                        El Administrador de cada organización es responsable de gestionar los permisos y garantizar que el uso del Servicio se ajuste a estos Términos.
+                    </p>
+                </div>
+
+                <!-- 6. Propiedad intelectual -->
+                <div class="relative p-8 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-green-400 to-primary text-white font-bold text-sm shrink-0">06</span>
+                        <h2 class="text-xl font-semibold text-heading-1">Propiedad Intelectual</h2>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="p-5 rounded-2xl border border-box-border bg-body">
+                            <p class="font-semibold text-heading-2 mb-2 text-sm">Propiedad de ElaScout</p>
+                            <p class="text-heading-3 text-sm">ElaScout retiene todos los derechos sobre el Servicio: código fuente, diseño, marca, logotipos y metodologías de evaluación. Nada en estos Términos transfiere derechos de propiedad intelectual al usuario.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-box-border bg-body">
+                            <p class="font-semibold text-heading-2 mb-2 text-sm">Propiedad del Usuario</p>
+                            <p class="text-heading-3 text-sm">El usuario retiene la plena titularidad de los datos que introduce en la plataforma. ElaScout solo los usa para prestar el Servicio y no los cede a terceros sin consentimiento, salvo obligación legal.</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-sm text-heading-3 border-t border-box-border pt-4">
+                        Al cargar contenido, el usuario otorga a ElaScout una licencia <span class="font-semibold text-heading-2">limitada, no exclusiva y revocable</span> para almacenar, procesar y mostrar dicho contenido únicamente para prestar el Servicio.
+                    </p>
+                </div>
+
+                <!-- 7. Limitación de responsabilidad -->
+                <div class="relative p-8 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-600 to-green-500 text-white font-bold text-sm shrink-0">07</span>
+                        <h2 class="text-xl font-semibold text-heading-1">Limitación de Responsabilidad</h2>
+                    </div>
+                    <Paragraph className="mb-4">
+                        En la máxima medida permitida por ley, ElaScout no será responsable de ningún daño indirecto, incidental, especial o consecuente, incluyendo pérdida de beneficios, datos o interrupción del negocio.
+                    </Paragraph>
+                    <Paragraph className="mb-4">
+                        ElaScout no garantiza que el Servicio esté disponible de forma ininterrumpida o libre de errores. El Servicio se presta <span class="font-semibold text-heading-2">«tal cual»</span> y <span class="font-semibold text-heading-2">«según disponibilidad»</span>.
+                    </Paragraph>
+                    <div class="p-5 rounded-2xl border border-box-border bg-body">
+                        <p class="text-sm text-heading-3">
+                            La responsabilidad total de ElaScout se limitará al importe abonado durante los
+                            <span class="font-semibold text-heading-2"> 3 meses anteriores</span> al hecho que originó la reclamación, o
+                            <span class="font-semibold text-heading-2"> 100 €</span> si no se hubiera realizado ningún pago.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 8. Vigencia y terminación -->
+                <div class="relative p-8 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-indigo-600 text-white font-bold text-sm shrink-0">08</span>
+                        <h2 class="text-xl font-semibold text-heading-1">Vigencia y Terminación</h2>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0"></span>
+                            <p class="text-heading-3 md:text-lg">Estos Términos permanecen en vigor mientras el usuario mantenga una cuenta activa en el Servicio.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0"></span>
+                            <p class="text-heading-3 md:text-lg">El usuario puede cancelar su cuenta en cualquier momento desde la configuración de la plataforma.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0"></span>
+                            <p class="text-heading-3 md:text-lg">ElaScout puede suspender o cancelar el acceso de forma inmediata en caso de incumplimiento de estos Términos.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-500 mt-2.5 shrink-0"></span>
+                            <p class="text-heading-3 md:text-lg">El usuario puede solicitar la exportación de sus datos antes de la cancelación de la cuenta.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 9. Ley aplicable -->
+                <div class="relative p-8 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-green-500 to-indigo-600 text-white font-bold text-sm shrink-0">09</span>
+                        <h2 class="text-xl font-semibold text-heading-1">Ley Aplicable y Jurisdicción</h2>
+                    </div>
+                    <Paragraph className="mb-4">
+                        Estos Términos se rigen conforme a la legislación española, en particular la <span class="font-semibold text-heading-2">LOPDGDD</span> y el <span class="font-semibold text-heading-2">RGPD / GDPR (Reglamento (UE) 2016/679)</span>.
+                    </Paragraph>
+                    <div class="p-5 rounded-2xl border border-box-border bg-body">
+                        <p class="text-heading-3 text-sm">
+                            Cualquier controversia se someterá a la jurisdicción exclusiva de los juzgados y tribunales de la ciudad de
+                            <span class="font-semibold text-heading-2"> Cali (Colombia)</span>,
+                            renunciando las partes a cualquier otro fuero que pudiera corresponderles.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 10. Contacto -->
+                <div class="relative p-8 rounded-3xl bg-gradient-to-br from-indigo-600/10 via-primary/10 to-green-500/10 border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                    <span class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-indigo-600 to-primary rounded-full blur-3xl opacity-10"></span>
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-green-400 text-white font-bold text-sm shrink-0">10</span>
+                        <h2 class="text-xl font-semibold text-heading-1">Contacto</h2>
+                    </div>
+                    <Paragraph className="mb-6">
+                        Si tiene alguna pregunta o reclamación sobre estos Términos de Servicio, puede ponerse en contacto con nuestro equipo legal:
+                    </Paragraph>
+                    <a href="mailto:legal@elascout.com"
+                        class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600 via-primary to-green-600 text-white font-semibold shadow-lg hover:opacity-90 transition-opacity">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
+                        </svg>
+                        garaje8.dev@gmail.com
+                    </a>
+                    <p class="mt-4 text-sm text-heading-3">Responderemos en un plazo máximo de 30 días hábiles desde su recepción.</p>
+                </div>
+
+                <!-- Footer note -->
+                <p class="text-center text-sm text-heading-3 pt-4">
+                    ElaScout se reserva el derecho de modificar estos Términos. Las modificaciones sustanciales se notificarán con al menos
+                    <span class="font-semibold text-heading-2"> 15 días</span> de antelación.
+                    El uso continuado del Servicio implicará la aceptación de los nuevos Términos.
+                </p>
+
+            </Container>
+        </section>
+
+    </main>
+</Layout>

@@ -52,6 +52,10 @@ const navItems = [
     {
         href:"/skoovify",
         text:"Skoovify"
+    },
+    {
+        href:"/about",
+        text:"About Me"
     }
 ];
 
