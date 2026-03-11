@@ -1,0 +1,323 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Container from '@components/shared/Container.astro';
+import Paragraph from '@components/shared/Paragraph.astro';
+---
+
+<Layout title="About Me - Carlos Cortes | garaje88">
+    <main class="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden">
+
+        <!-- Hero -->
+        <section class="relative pt-32 lg:pt-36 pb-10">
+            <span class="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90"></span>
+            <span class="absolute -right-10 top-20 w-32 h-32 rotate-90 skew-x-12 rounded-3xl bg-green-400 blur-xl opacity-60 hidden lg:block"></span>
+            <span class="absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80"></span>
+
+            <Container className={"flex flex-col lg:flex-row gap-10 lg:gap-12"}>
+                <!-- Text -->
+                <div class="relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8 lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2">
+                    <span class="px-4 py-1.5 rounded-full border border-box-border bg-box-bg text-heading-3 text-sm font-medium mb-6">
+                        About Me
+                    </span>
+                    <h1 class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight font-bold text-heading-1">
+                        Carlos <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">Cortes</span> Polanco
+                    </h1>
+                    <p class="mt-3 text-lg font-semibold text-heading-2">
+                        Tech Lead · Arquitecto de Soluciones · Backend Java
+                    </p>
+                    <Paragraph className="mt-6">
+                        Tech Lead y Arquitecto de Soluciones con más de 6 años liderando equipos y entregas end-to-end en entornos ágiles. Especializado en arquitectura de software, diseño de APIs, integración de sistemas y SDLC, con foco en escalabilidad, resiliencia, rendimiento y seguridad.
+                    </Paragraph>
+
+                    <!-- Contact pills -->
+                    <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
+                        <a href="mailto:carlos.polanco010@gmail.com"
+                           class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-box-border bg-box-bg text-heading-2 text-sm font-medium hover:border-primary transition-colors shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-primary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z"/>
+                            </svg>
+                            carlos.polanco010@gmail.com
+                        </a>
+                        <a href="https://co.linkedin.com/in/carlospolancodev" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-box-border bg-box-bg text-heading-2 text-sm font-medium hover:border-primary transition-colors shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 text-primary" viewBox="0 0 16 16">
+                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-box-border bg-box-bg text-heading-2 text-sm font-medium shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-primary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+                            </svg>
+                            Cali, Colombia
+                        </span>
+                    </div>
+
+                    <!-- Social links -->
+                    <div class="mt-8 flex items-center gap-4 text-heading-3">
+                        <a href="https://github.com/garaje88/" target="_blank" rel="noopener noreferrer" class="transition hover:text-heading-1 hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                            </svg>
+                            <span class="sr-only">GitHub</span>
+                        </a>
+                        <a href="https://www.x.com/garaje88" target="_blank" rel="noopener noreferrer" class="transition hover:text-heading-1 hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                            </svg>
+                            <span class="sr-only">X</span>
+                        </a>
+                        <a href="https://www.instagram.com/garaje88.dev" target="_blank" rel="noopener noreferrer" class="transition hover:text-heading-1 hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                            </svg>
+                            <span class="sr-only">Instagram</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl">
+                    <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
+                    <div class="absolute p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
+                    <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
+                    <img
+                        src="/images/dev-with-c-1.webp"
+                        alt="Carlos Cortes Polanco"
+                        width="1240"
+                        height="1385"
+                        class="w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full"
+                    />
+                    <div class="w-full h-80 sm:h-96 lg:h-[500px]"></div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Skills -->
+        <section class="relative">
+            <span class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 blur-2xl opacity-10 w-48 h-36 rounded-full rotate-12 skew-x-6 bg-primary"></span>
+            <Container>
+                <div class="text-center mb-12">
+                    <span class="px-4 py-1.5 rounded-full border border-box-border bg-box-bg text-heading-3 text-sm font-medium">
+                        Stack técnico
+                    </span>
+                    <h2 class="mt-4 text-2xl sm:text-3xl md:text-4xl font-semibold text-heading-1">
+                        Competencias <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600">técnicas</span>
+                    </h2>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {[
+                        {
+                            label: "Backend Java",
+                            color: "from-indigo-600 to-primary",
+                            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>`,
+                            skills: ["Java 8+", "Microservicios", "Spring MVC", "APIs REST", "WebFlux (reactivo)", "Webservices"]
+                        },
+                        {
+                            label: "Arquitectura",
+                            color: "from-primary to-green-500",
+                            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/>`,
+                            skills: ["Event-Driven Architecture", "Pub/Sub", "Integración de sistemas", "Módulos de seguridad", "Diseño de APIs", "SDLC"]
+                        },
+                        {
+                            label: "DevOps / Cloud",
+                            color: "from-green-500 to-green-400",
+                            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z"/>`,
+                            skills: ["CI/CD", "Docker", "Kubernetes", "AWS", "GCP (Google Compute Engine)", "Automatización SDLC"]
+                        },
+                        {
+                            label: "Seguridad",
+                            color: "from-indigo-500 to-indigo-700",
+                            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>`,
+                            skills: ["OWASP", "Cifrado simétrico/asimétrico", "Autenticación & autorización", "Certificados SSL"]
+                        },
+                        {
+                            label: "Bases de datos",
+                            color: "from-primary to-orange-400",
+                            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/>`,
+                            skills: ["PostgreSQL", "SQL Server", "PL/SQL"]
+                        },
+                        {
+                            label: "Fullstack & Otros",
+                            color: "from-green-400 to-primary",
+                            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"/>`,
+                            skills: ["TypeScript", "Next.js", "JavaScript", "Astro", "JSF / PrimeFaces", "VoIP (Asterisk)"]
+                        }
+                    ].map(cat => (
+                        <div class="p-6 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))] flex flex-col gap-4">
+                            <div class="flex items-center gap-3">
+                                <div class={`w-10 h-10 rounded-2xl bg-gradient-to-br ${cat.color} flex items-center justify-center shrink-0`}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-5 h-5" set:html={cat.icon}></svg>
+                                </div>
+                                <h3 class="font-semibold text-heading-1">{cat.label}</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                {cat.skills.map(skill => (
+                                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-body border border-box-border text-heading-2">
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </Container>
+        </section>
+
+        <!-- Experience -->
+        <section class="relative">
+            <span class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-primary to-green-400 rounded-full blur-3xl opacity-10"></span>
+            <Container>
+                <div class="text-center mb-12">
+                    <span class="px-4 py-1.5 rounded-full border border-box-border bg-box-bg text-heading-3 text-sm font-medium">
+                        Trayectoria
+                    </span>
+                    <h2 class="mt-4 text-2xl sm:text-3xl md:text-4xl font-semibold text-heading-1">
+                        Experiencia <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600">profesional</span>
+                    </h2>
+                </div>
+
+                <div class="max-w-3xl mx-auto flex flex-col gap-4">
+                    {[
+                        {
+                            company: "Carvajal Tecnología y Servicios",
+                            role: "Jefe Técnico",
+                            period: "Jul 2023 – Presente",
+                            color: "from-indigo-600 to-primary",
+                            current: true,
+                            bullets: [
+                                "Dirección técnica, mentoring y estandarización (code review, prácticas de ingeniería).",
+                                "Arquitectura backend: microservicios y event-driven (Pub/Sub).",
+                                "DevOps: pipelines CI/CD, Docker, Kubernetes y automatización del SDLC.",
+                                "Cloud: AWS y GCP; prácticas de seguridad OWASP y cifrado."
+                            ]
+                        },
+                        {
+                            company: "Carvajal Tecnología y Servicios",
+                            role: "Líder Técnico",
+                            period: "Jun 2021 – Nov 2023",
+                            color: "from-primary to-green-500",
+                            current: false,
+                            bullets: [
+                                "Liderazgo técnico en evolución de arquitectura y entrega continua bajo Agile/DevOps."
+                            ]
+                        },
+                        {
+                            company: "R-FAST",
+                            role: "Coordinador de Proyectos TI / Coordinador de Desarrollo",
+                            period: "Abr 2019 – Jun 2021",
+                            color: "from-green-500 to-green-400",
+                            current: false,
+                            bullets: [
+                                "Coordinación de proyectos y equipos de desarrollo.",
+                                "Diseño y desarrollo de módulo de seguridad (autenticación/autorización) con Java y PHP."
+                            ]
+                        },
+                        {
+                            company: "R-FAST",
+                            role: "Analista de Desarrollo de Software",
+                            period: "Jul 2013 – Abr 2019",
+                            color: "from-indigo-500 to-indigo-700",
+                            current: false,
+                            bullets: [
+                                "Backend para ERP web (facturación y seguridad) con Java, JSF/PrimeFaces, Spring MVC y PostgreSQL.",
+                                "Integración VoIP empresarial y administración de Google Compute Engine."
+                            ]
+                        },
+                        {
+                            company: "Siesa",
+                            role: "Analista Desarrollador",
+                            period: "Sep 2010 – Jul 2013",
+                            color: "from-primary to-orange-400",
+                            current: false,
+                            bullets: [
+                                "Desarrollo de software ERP web con Java, EJB y SQL Server."
+                            ]
+                        }
+                    ].map(exp => (
+                        <div class="relative p-6 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                            <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                                <div class={`w-10 h-10 rounded-2xl bg-gradient-to-br ${exp.color} shrink-0 flex items-center justify-center`}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <h3 class="font-semibold text-heading-1">{exp.role}</h3>
+                                        {exp.current && (
+                                            <span class="px-2 py-0.5 rounded-full text-xs font-medium bg-gradient-to-r from-primary to-green-500 text-white">Actual</span>
+                                        )}
+                                    </div>
+                                    <p class="text-heading-2 font-medium text-sm">{exp.company}</p>
+                                    <p class="text-heading-3 text-xs mt-0.5 mb-3">{exp.period}</p>
+                                    <ul class="space-y-1.5">
+                                        {exp.bullets.map(b => (
+                                            <li class="flex items-start gap-2 text-heading-3 text-sm">
+                                                <span class="w-1 h-1 rounded-full bg-primary mt-2 shrink-0"></span>
+                                                {b}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </Container>
+        </section>
+
+        <!-- Education + CTA -->
+        <section class="relative pb-20">
+            <span class="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-primary to-green-400 rounded-full blur-3xl opacity-10"></span>
+            <Container className={"grid lg:grid-cols-2 gap-6 items-start"}>
+
+                <!-- Education -->
+                <div class="p-8 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-600 to-primary flex items-center justify-center shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-semibold text-heading-1">Educación</h2>
+                    </div>
+                    <div class="p-5 rounded-2xl border border-box-border bg-body">
+                        <p class="font-semibold text-heading-1">Ingeniería en Sistemas</p>
+                        <p class="text-heading-2 text-sm mt-1">Universidad Santiago de Cali</p>
+                        <p class="text-heading-3 text-xs mt-0.5">2004 – 2010</p>
+                    </div>
+                </div>
+
+                <!-- Contact CTA -->
+                <div class="relative p-8 rounded-3xl bg-gradient-to-br from-indigo-600/10 via-primary/10 to-green-500/10 border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))]">
+                    <span class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary to-green-400 rounded-full blur-3xl opacity-10"></span>
+                    <h2 class="text-xl font-semibold text-heading-1 mb-3">¿Trabajamos juntos?</h2>
+                    <Paragraph className="mb-6">
+                        Estoy abierto a nuevas oportunidades, proyectos freelance y colaboraciones. No dudes en contactarme.
+                    </Paragraph>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="mailto:carlos.polanco010@gmail.com"
+                           class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600 via-primary to-green-600 text-white font-semibold shadow-lg hover:opacity-90 transition-opacity">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z"/>
+                            </svg>
+                            Enviar email
+                        </a>
+                        <a href="https://co.linkedin.com/in/carlospolancodev" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-box-border bg-box-bg text-heading-2 font-semibold hover:border-primary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4" viewBox="0 0 16 16">
+                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+            </Container>
+        </section>
+
+    </main>
+</Layout>
