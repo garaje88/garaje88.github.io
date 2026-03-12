@@ -6,5 +6,5 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [tailwind(), react()],
   site: 'https://garaje88.github.io',
-  output: 'server',
+  output: 'static',
 });

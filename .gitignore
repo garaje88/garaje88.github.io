@@ -3,6 +3,9 @@ dist/
 
 # generated types
 .astro/
+.claude/
+.idx/
+.vscode/
 
 # dependencies
 node_modules/
