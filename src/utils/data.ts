@@ -48,7 +48,7 @@ const navItems = [
     {
         href:"/bookmark",
         text:"Bookmark"
-    },,
+    },
     {
         href:"/shortcuts",
         text:"ShortCuts"
