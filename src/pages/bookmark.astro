@@ -1,0 +1,267 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Container from '@components/shared/Container.astro';
+import Paragraph from '@components/shared/Paragraph.astro';
+import Title from '@components/shared/Title.astro';
+---
+
+<Layout title="Bookmark Manager - garaje88">
+    <main class="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden">
+
+        <!-- Hero -->
+        <section class="relative pt-32 lg:pt-36 pb-10">
+            <span class="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90"></span>
+            <span class="absolute -right-10 top-20 w-32 h-32 rotate-90 skew-x-12 rounded-3xl bg-green-400 blur-xl opacity-60 hidden lg:block"></span>
+            <span class="absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80"></span>
+
+            <Container className={"flex flex-col lg:flex-row gap-10 lg:gap-12"}>
+                <!-- Text -->
+                <div class="relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8 lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2">
+                    <span class="px-4 py-1.5 rounded-full border border-box-border bg-box-bg text-heading-3 text-sm font-medium mb-6">
+                        Bookmark Manager
+                    </span>
+                    <h1 class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight font-bold text-heading-1">
+                        Centraliza todos tus <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">links</span> en un solo lugar.
+                    </h1>
+                    <Paragraph className="mt-8">
+                        Guarda, organiza y accede a tus enlaces favoritos desde cualquier lugar. Olvídate de perder links importantes en el historial del navegador.
+                    </Paragraph>
+                    <div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
+                        <a href="https://bookmark.garaje88.dev" target="_blank"
+                           class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600 via-primary to-green-600 text-white font-semibold shadow-lg hover:opacity-90 transition-opacity">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"/>
+                            </svg>
+                            Inicia
+                        </a>
+                        <a href="#features"
+                           class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-box-border bg-box-bg text-heading-2 font-semibold hover:border-primary transition-colors shadow-sm">
+                            Ver funcionalidades
+                        </a>
+                        <a href="#screenshots"
+                           class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-box-border bg-box-bg text-heading-2 font-semibold hover:border-primary transition-colors shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+                            </svg>
+                            Ver capturas
+                        </a>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="mt-12 flex flex-wrap justify-center lg:justify-start gap-6">
+                        {[
+                            { value: "∞", label: "Links ilimitados" },
+                            { value: "100%", label: "Acceso desde web" },
+                            { value: "0", label: "Links perdidos" }
+                        ].map(stat => (
+                            <div class="text-center lg:text-left">
+                                <p class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600">{stat.value}</p>
+                                <p class="text-xs text-heading-3 mt-0.5">{stat.label}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <!-- Dashboard screenshot -->
+                <div class="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl">
+                    <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
+                    <div class="absolute p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-indigo-600 to-primary rounded-full blur-3xl opacity-60"></div>
+                    <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
+                    <div class="relative w-full rounded-3xl overflow-hidden border border-box-border shadow-[0px_8px_40px_rgb(var(--box-sd))]">
+                        <img
+                            src="/images/bookmark/login.png"
+                            alt="Bookmark Manager - Login"
+                            width="1280"
+                            height="800"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="relative">
+            <span class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 blur-2xl opacity-10 w-48 h-36 rounded-full rotate-12 skew-x-6 bg-primary"></span>
+            <Container>
+                <div class="text-center mb-12">
+                    <span class="px-4 py-1.5 rounded-full border border-box-border bg-box-bg text-heading-3 text-sm font-medium">
+                        Funcionalidades
+                    </span>
+                    <Title className="mt-4">
+                        Todo lo que necesitas para <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">organizar</span> tu web
+                    </Title>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {[
+                        {
+                            title: "Guarda links al instante",
+                            description: "Captura cualquier URL con un clic. Nunca más perderás un artículo, recurso o herramienta que encontraste navegando.",
+                            color: "from-indigo-600 to-primary",
+                            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"/>`
+                        },
+                        {
+                            title: "Organiza por categorías",
+                            description: "Crea categorías personalizadas y agrupa tus enlaces de forma lógica. Encuentra lo que buscas en segundos.",
+                            color: "from-primary to-green-500",
+                            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z"/>`
+                        },
+                        {
+                            title: "Acceso desde cualquier lugar",
+                            description: "Tu colección de links siempre disponible desde el navegador, sin importar el dispositivo que uses.",
+                            color: "from-green-500 to-green-400",
+                            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/>`
+                        },
+                        {
+                            title: "Búsqueda inteligente",
+                            description: "Encuentra cualquier link guardado en tu colección al instante mediante búsqueda por título, URL o categoría.",
+                            color: "from-indigo-500 to-indigo-700",
+                            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>`
+                        },
+                        {
+                            title: "Dashboard centralizado",
+                            description: "Visualiza y gestiona toda tu biblioteca de links desde un panel de control claro, ordenado y fácil de usar.",
+                            color: "from-primary to-orange-400",
+                            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/>`
+                        },
+                        {
+                            title: "Acceso seguro",
+                            description: "Tu cuenta protegida con autenticación segura. Solo tú decides qué links guardas y quién puede acceder a ellos.",
+                            color: "from-green-400 to-primary",
+                            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>`
+                        }
+                    ].map(feature => (
+                        <div class="p-6 rounded-3xl bg-box-bg border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))] flex flex-col gap-4 group hover:border-primary/40 transition-colors">
+                            <div class={`w-12 h-12 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center shrink-0 shadow-lg`}>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6" set:html={feature.icon}></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-heading-1 text-lg mb-2">{feature.title}</h3>
+                                <p class="text-heading-3 text-sm leading-relaxed">{feature.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </Container>
+        </section>
+
+        <!-- Screenshots -->
+        <section id="screenshots" class="relative">
+            <span class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-indigo-600 to-primary rounded-full blur-3xl opacity-10"></span>
+            <span class="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-primary to-green-400 rounded-full blur-3xl opacity-10"></span>
+            <Container>
+                <div class="text-center mb-12">
+                    <span class="px-4 py-1.5 rounded-full border border-box-border bg-box-bg text-heading-3 text-sm font-medium">
+                        Capturas de pantalla
+                    </span>
+                    <Title className="mt-4">
+                        Una interfaz <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">limpia</span> y poderosa
+                    </Title>
+                    <Paragraph className="mt-4 max-w-2xl mx-auto">
+                        Diseñada para ser simple y eficiente. Todo lo que necesitas, sin distracciones.
+                    </Paragraph>
+                </div>
+
+                <!-- Dashboard - imagen principal -->
+                <div class="relative rounded-3xl overflow-hidden border border-box-border shadow-[0px_8px_40px_rgb(var(--box-sd))] mb-6">
+                    <div class="absolute inset-0 bg-gradient-to-t from-body/60 to-transparent z-10 flex items-end p-8">
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-gradient-to-r from-indigo-600 to-primary text-white text-xs font-semibold">Dashboard</span>
+                            <p class="mt-2 text-heading-1 font-semibold text-lg">Panel de control principal</p>
+                            <p class="text-heading-3 text-sm">Visualiza y gestiona todos tus links guardados en un solo lugar.</p>
+                        </div>
+                    </div>
+                    <img
+                        src="/images/bookmark/dashboard.png"
+                        alt="Bookmark Manager - Dashboard principal"
+                        width="1280"
+                        height="720"
+                        class="w-full object-cover max-h-[480px]"
+                    />
+                </div>
+
+                <!-- Login + Category -->
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="relative rounded-3xl overflow-hidden border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))] group">
+                        <div class="absolute inset-0 bg-gradient-to-t from-body/70 to-transparent z-10 flex items-end p-6">
+                            <div>
+                                <span class="px-3 py-1 rounded-full bg-gradient-to-r from-primary to-green-500 text-white text-xs font-semibold">Acceso</span>
+                                <p class="mt-2 text-heading-1 font-semibold">Login seguro</p>
+                                <p class="text-heading-3 text-sm">Autenticación protegida para tu colección privada.</p>
+                            </div>
+                        </div>
+                        <img
+                            src="/images/bookmark/login.png"
+                            alt="Bookmark Manager - Pantalla de login"
+                            width="640"
+                            height="480"
+                            class="w-full object-cover max-h-72 group-hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+
+                    <div class="relative rounded-3xl overflow-hidden border border-box-border shadow-[0px_4px_24px_rgb(var(--box-sd))] group">
+                        <div class="absolute inset-0 bg-gradient-to-t from-body/70 to-transparent z-10 flex items-end p-6">
+                            <div>
+                                <span class="px-3 py-1 rounded-full bg-gradient-to-r from-green-500 to-green-400 text-white text-xs font-semibold">Organización</span>
+                                <p class="mt-2 text-heading-1 font-semibold">Categorías personalizadas</p>
+                                <p class="text-heading-3 text-sm">Agrupa tus links por tema, proyecto o prioridad.</p>
+                            </div>
+                        </div>
+                        <img
+                            src="/images/bookmark/category.png"
+                            alt="Bookmark Manager - Gestión de categorías"
+                            width="640"
+                            height="480"
+                            class="w-full object-cover max-h-72 group-hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- CTA -->
+        <section class="relative pb-20">
+            <span class="absolute inset-0 flex items-center justify-center">
+                <span class="w-72 h-72 rounded-full bg-gradient-to-br from-indigo-600/20 via-primary/20 to-green-400/20 blur-3xl"></span>
+            </span>
+            <Container>
+                <div class="relative p-10 md:p-16 rounded-3xl bg-gradient-to-br from-indigo-600/10 via-primary/10 to-green-500/10 border border-box-border shadow-[0px_8px_40px_rgb(var(--box-sd))] text-center overflow-hidden">
+                    <span class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary to-green-400 rounded-full blur-3xl opacity-20"></span>
+                    <span class="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-br from-indigo-600 to-primary rounded-full blur-3xl opacity-20"></span>
+
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-primary flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-heading-1 mb-4">
+                            ¿Listo para organizar tu <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600">web favorita</span>?
+                        </h2>
+                        <Paragraph className="max-w-xl mx-auto mb-8">
+                            Empieza a centralizar todos tus links importantes. Sin caos, sin pérdidas. Solo organización.
+                        </Paragraph>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="https://github.com/garaje88/" target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-indigo-600 via-primary to-green-600 text-white font-semibold shadow-lg hover:opacity-90 transition-opacity">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                                </svg>
+                                Ver en GitHub
+                            </a>
+                            <a href="mailto:carlos.polanco010@gmail.com"
+                               class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border border-box-border bg-box-bg text-heading-2 font-semibold hover:border-primary transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z"/>
+                                </svg>
+                                Contactar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+    </main>
+</Layout>
