@@ -3,7 +3,6 @@ import Button from "@components/shared/Button.astro";
 import Container from "@components/shared/Container.astro";
 import Paragraph from "@components/shared/Paragraph.astro";
 import { db, UserStarted, NOW } from 'astro:db';
-import confetti from 'canvas-confetti';
 import Toast from '@components/shared/Toast.jsx';
 
 let showToast = false;
@@ -25,8 +24,6 @@ if (Astro.request.method === 'POST') {
         console.log(error);
         toastMessage = 'sdsdsds';
         showToast = true;
-    }finally{
-        await setTimeout(() => showToast = false, 3000);
     }
 }
 
