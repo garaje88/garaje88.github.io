@@ -2,7 +2,6 @@
 import Button from "@components/shared/Button.astro";
 import Container from "@components/shared/Container.astro";
 import Paragraph from "@components/shared/Paragraph.astro";
-import { db, UserStarted, NOW } from 'astro:db';
 import Toast from '@components/shared/Toast.jsx';
 
 let showToast = false;
@@ -15,7 +14,6 @@ if (Astro.request.method === 'POST') {
       console.log(emailstarted);
       if (typeof emailstarted === 'string' && validateEmail(emailstarted)) {
         console.log('insert');
-        await db.insert(UserStarted).values({ email:emailstarted, country:'CO', registry: NOW });
       }else{
         showToast = true;
         toastMessage= 'xxxxxxxxxxxx';
