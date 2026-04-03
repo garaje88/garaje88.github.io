@@ -58,6 +58,10 @@ const navItems = [
         text:"Skoovify"
     },
     {
+        href:"/elascout",
+        text:"ElaScout"
+    },
+    {
         href:"/about",
         text:"About Me"
     }
