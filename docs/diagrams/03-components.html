@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>C4 · Componentes — garaje88.github.io</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #020617;
+    background-image:
+      linear-gradient(#1e293b 1px, transparent 1px),
+      linear-gradient(90deg, #1e293b 1px, transparent 1px);
+    background-size: 40px 40px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #e2e8f0;
+    padding: 32px;
+    min-height: 100vh;
+  }
+  .header { text-align: center; margin-bottom: 24px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f8fafc; letter-spacing: 0.5px; }
+  .header .sub { font-size: 12px; color: #64748b; margin-top: 6px; }
+  .pulse-dot {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: #a78bfa; margin-right: 8px; vertical-align: middle;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(167,139,250,0.6); }
+    50% { box-shadow: 0 0 0 8px rgba(167,139,250,0); }
+  }
+  svg { display: block; margin: 0 auto; max-width: 100%; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+  .card { background: rgba(15,23,42,0.7); border: 1px solid #1e293b; border-radius: 8px; padding: 14px 16px; }
+  .card .t { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; }
+  .card .v { font-size: 14px; color: #f1f5f9; margin-top: 6px; font-weight: 600; }
+  .card .d { font-size: 11px; color: #94a3b8; margin-top: 6px; line-height: 1.5; }
+  .legend { text-align: center; margin-top: 20px; font-size: 11px; color: #64748b; }
+  .legend span { display: inline-block; margin: 0 10px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1><span class="pulse-dot"></span>C4 · Nivel 3 — Componentes internos</h1>
+  <div class="sub">Pages → Layout → Sections/Cards/Shared → Utils (axios) → SaaS</div>
+</div>
+
+<svg viewBox="0 0 1340 780" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrCyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrEmer" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrViolet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/>
+    </marker>
+  </defs>
+
+  <!-- Boundary 1: Pages -->
+  <rect x="40" y="60" width="280" height="700" rx="14" fill="none"
+        stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <text x="60" y="86" font-family="JetBrains Mono" font-size="12" fill="#22d3ee">[ src/pages ]</text>
+
+  <!-- Pages list -->
+  <g font-family="JetBrains Mono" font-size="11" fill="#e2e8f0">
+    <rect x="65" y="110" width="230" height="32" rx="6" fill="#0f172a"/>
+    <rect x="65" y="110" width="230" height="32" rx="6" fill="#22d3ee" fill-opacity="0.10" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="180" y="131" text-anchor="middle">index.astro · /</text>
+
+    <rect x="65" y="150" width="230" height="32" rx="6" fill="#0f172a"/>
+    <rect x="65" y="150" width="230" height="32" rx="6" fill="#22d3ee" fill-opacity="0.10" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="180" y="171" text-anchor="middle">about.astro · /about</text>
+
+    <rect x="65" y="190" width="230" height="32" rx="6" fill="#0f172a"/>
+    <rect x="65" y="190" width="230" height="32" rx="6" fill="#22d3ee" fill-opacity="0.10" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="180" y="211" text-anchor="middle">bookmark.astro · /bookmark</text>
+
+    <rect x="65" y="230" width="230" height="32" rx="6" fill="#0f172a"/>
+    <rect x="65" y="230" width="230" height="32" rx="6" fill="#22d3ee" fill-opacity="0.10" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="180" y="251" text-anchor="middle">elascout.astro · /elascout</text>
+
+    <rect x="65" y="270" width="230" height="32" rx="6" fill="#0f172a"/>
+    <rect x="65" y="270" width="230" height="32" rx="6" fill="#22d3ee" fill-opacity="0.10" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="180" y="291" text-anchor="middle">skoovify.astro · /skoovify</text>
+
+    <rect x="65" y="310" width="230" height="32" rx="6" fill="#0f172a"/>
+    <rect x="65" y="310" width="230" height="32" rx="6" fill="#22d3ee" fill-opacity="0.10" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="180" y="331" text-anchor="middle">shortcuts.astro · /shortcuts</text>
+
+    <rect x="65" y="350" width="230" height="32" rx="6" fill="#0f172a"/>
+    <rect x="65" y="350" width="230" height="32" rx="6" fill="#22d3ee" fill-opacity="0.10" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="180" y="371" text-anchor="middle">privacy.astro · /privacy</text>
+
+    <rect x="65" y="390" width="230" height="32" rx="6" fill="#0f172a"/>
+    <rect x="65" y="390" width="230" height="32" rx="6" fill="#22d3ee" fill-opacity="0.10" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="180" y="411" text-anchor="middle">terms.astro · /terms</text>
+  </g>
+
+  <!-- Layout box -->
+  <rect x="65" y="460" width="230" height="100" rx="10" fill="#0f172a"/>
+  <rect x="65" y="460" width="230" height="100" rx="10" fill="#22d3ee" fill-opacity="0.15"
+        stroke="#22d3ee" stroke-width="2"/>
+  <text x="180" y="490" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#22d3ee">Layout.astro</text>
+  <text x="180" y="510" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[envoltorio común]</text>
+  <text x="180" y="530" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">Navbar · slot · Footer</text>
+  <text x="180" y="546" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">tema dark/light</text>
+
+  <!-- Boundary 2: Sections / Cards -->
+  <rect x="360" y="60" width="380" height="700" rx="14" fill="none"
+        stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <text x="380" y="86" font-family="JetBrains Mono" font-size="12" fill="#a78bfa">[ src/components — sections, cards, blocks, elements, shared ]</text>
+
+  <!-- Sections -->
+  <g font-family="JetBrains Mono">
+    <rect x="385" y="110" width="330" height="180" rx="10" fill="#0f172a"/>
+    <rect x="385" y="110" width="330" height="180" rx="10" fill="#a78bfa" fill-opacity="0.10"
+          stroke="#a78bfa" stroke-width="2"/>
+    <text x="550" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#a78bfa">sections/</text>
+    <text x="550" y="156" text-anchor="middle" font-size="10" fill="#cbd5e1">[bloques de página]</text>
+    <text x="550" y="180" text-anchor="middle" font-size="11" fill="#e2e8f0">Hero · Services · AboutUs</text>
+    <text x="550" y="196" text-anchor="middle" font-size="11" fill="#e2e8f0">Brands · Features · CTA</text>
+    <text x="550" y="212" text-anchor="middle" font-size="11" fill="#e2e8f0">ByNumber</text>
+    <text x="550" y="240" text-anchor="middle" font-size="10" fill="#94a3b8">subdir: skoovify/* · shortcut/*</text>
+    <text x="550" y="256" text-anchor="middle" font-size="10" fill="#94a3b8">ChatComponent (jsx · React)</text>
+    <text x="550" y="272" text-anchor="middle" font-size="10" fill="#94a3b8">MessageComponent (jsx · React)</text>
+  </g>
+
+  <g font-family="JetBrains Mono">
+    <rect x="385" y="310" width="330" height="120" rx="10" fill="#0f172a"/>
+    <rect x="385" y="310" width="330" height="120" rx="10" fill="#a78bfa" fill-opacity="0.08"
+          stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="550" y="338" text-anchor="middle" font-size="13" font-weight="700" fill="#a78bfa">cards/</text>
+    <text x="550" y="356" text-anchor="middle" font-size="10" fill="#cbd5e1">[piezas reutilizables]</text>
+    <text x="550" y="384" text-anchor="middle" font-size="11" fill="#e2e8f0">Service · ServiceBasic · Info</text>
+    <text x="550" y="408" text-anchor="middle" font-size="10" fill="#94a3b8">props tipados (Astro)</text>
+  </g>
+
+  <g font-family="JetBrains Mono">
+    <rect x="385" y="450" width="330" height="120" rx="10" fill="#0f172a"/>
+    <rect x="385" y="450" width="330" height="120" rx="10" fill="#a78bfa" fill-opacity="0.08"
+          stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="550" y="478" text-anchor="middle" font-size="13" font-weight="700" fill="#a78bfa">shared/</text>
+    <text x="550" y="496" text-anchor="middle" font-size="10" fill="#cbd5e1">[átomos UI]</text>
+    <text x="550" y="520" text-anchor="middle" font-size="11" fill="#e2e8f0">Button · Container · Title · Paragraph</text>
+    <text x="550" y="536" text-anchor="middle" font-size="11" fill="#e2e8f0">Navitem · BtnLink · FooterNav</text>
+    <text x="550" y="552" text-anchor="middle" font-size="11" fill="#e2e8f0">Toast.jsx · Spinner.jsx · LogoGaraje88.jsx</text>
+  </g>
+
+  <g font-family="JetBrains Mono">
+    <rect x="385" y="590" width="330" height="80" rx="10" fill="#0f172a"/>
+    <rect x="385" y="590" width="330" height="80" rx="10" fill="#a78bfa" fill-opacity="0.08"
+          stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="550" y="618" text-anchor="middle" font-size="13" font-weight="700" fill="#a78bfa">elements/ + blocks/</text>
+    <text x="550" y="640" text-anchor="middle" font-size="11" fill="#e2e8f0">Navbar · Footer · GroupFooterNav</text>
+    <text x="550" y="658" text-anchor="middle" font-size="10" fill="#94a3b8">consumidos por Layout y páginas</text>
+  </g>
+
+  <!-- Boundary 3: Utils -->
+  <rect x="780" y="60" width="280" height="700" rx="14" fill="none"
+        stroke="#34d399" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <text x="800" y="86" font-family="JetBrains Mono" font-size="12" fill="#34d399">[ src/utils ]</text>
+
+  <rect x="800" y="120" width="240" height="160" rx="10" fill="#0f172a"/>
+  <rect x="800" y="120" width="240" height="160" rx="10" fill="#34d399" fill-opacity="0.12"
+        stroke="#34d399" stroke-width="2"/>
+  <text x="920" y="148" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#34d399">apiChatGpt.ts</text>
+  <text x="920" y="170" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[axios POST · ChatGPT]</text>
+  <text x="920" y="196" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">interface Message</text>
+  <text x="920" y="212" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">interface ChatGPTPayload</text>
+  <text x="920" y="232" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#e2e8f0">createPayload(messages)</text>
+  <text x="920" y="248" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#e2e8f0">callChatGPTAPI(payload)</text>
+
+  <rect x="800" y="310" width="240" height="160" rx="10" fill="#0f172a"/>
+  <rect x="800" y="310" width="240" height="160" rx="10" fill="#fb7185" fill-opacity="0.12"
+        stroke="#fb7185" stroke-width="2"/>
+  <text x="920" y="338" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#fb7185">flagsmithClient.ts</text>
+  <text x="920" y="360" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[axios GET · Flagsmith]</text>
+  <text x="920" y="386" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#e2e8f0">callFlagsId(identifier, feature)</text>
+  <text x="920" y="402" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">→ Promise&lt;boolean&gt;</text>
+  <text x="920" y="430" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">header X-Environment-Key</text>
+
+  <rect x="800" y="500" width="240" height="120" rx="10" fill="#0f172a"/>
+  <rect x="800" y="500" width="240" height="120" rx="10" fill="#a78bfa" fill-opacity="0.10"
+        stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="920" y="528" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#a78bfa">data.ts</text>
+  <text x="920" y="550" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[contenido estático tipado]</text>
+  <text x="920" y="576" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#e2e8f0">servicesGaraje88 · servicesSkoovify</text>
+  <text x="920" y="594" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#e2e8f0">navItems</text>
+
+  <!-- Boundary 4: External -->
+  <rect x="1100" y="60" width="220" height="700" rx="14" fill="none"
+        stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <text x="1120" y="86" font-family="JetBrains Mono" font-size="12" fill="#fbbf24">[ SaaS externos ]</text>
+
+  <rect x="1115" y="170" width="190" height="120" rx="10" fill="#0f172a"/>
+  <rect x="1115" y="170" width="190" height="120" rx="10" fill="#fbbf24" fill-opacity="0.12"
+        stroke="#fbbf24" stroke-width="2"/>
+  <text x="1210" y="200" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#fbbf24">OpenAI</text>
+  <text x="1210" y="220" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[Chat API]</text>
+  <text x="1210" y="248" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">/chat/completions</text>
+  <text x="1210" y="270" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">model · messages</text>
+
+  <rect x="1115" y="350" width="190" height="120" rx="10" fill="#0f172a"/>
+  <rect x="1115" y="350" width="190" height="120" rx="10" fill="#fb7185" fill-opacity="0.12"
+        stroke="#fb7185" stroke-width="2"/>
+  <text x="1210" y="380" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#fb7185">Flagsmith</text>
+  <text x="1210" y="400" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[REST]</text>
+  <text x="1210" y="428" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">/identities/?identifier=</text>
+  <text x="1210" y="448" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">&feature=</text>
+
+  <!-- Flechas Pages -> Layout -->
+  <path d="M 180 422 L 180 460" stroke="#22d3ee" stroke-width="1.5" fill="none" marker-end="url(#arrCyan)"/>
+
+  <!-- Flechas Pages -> Sections (1) -->
+  <path d="M 295 200 L 385 200" stroke="#a78bfa" stroke-width="1.5" fill="none" marker-end="url(#arrViolet)"/>
+  <text x="305" y="192" font-family="JetBrains Mono" font-size="9" fill="#a78bfa">render</text>
+
+  <!-- Layout -> elements/blocks -->
+  <path d="M 295 510 L 385 625" stroke="#a78bfa" stroke-width="1.5" fill="none" marker-end="url(#arrViolet)"/>
+
+  <!-- Sections -> shared / cards -->
+  <path d="M 550 290 L 550 310" stroke="#a78bfa" stroke-width="1.5" fill="none" marker-end="url(#arrViolet)"/>
+  <path d="M 550 430 L 550 450" stroke="#a78bfa" stroke-width="1.5" fill="none" marker-end="url(#arrViolet)"/>
+
+  <!-- Sections (shortcut) -> apiChatGpt -->
+  <path d="M 715 220 Q 770 220 800 200" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#arrEmer)"/>
+  <text x="725" y="200" font-family="JetBrains Mono" font-size="10" fill="#34d399">import</text>
+
+  <!-- Pages -> flagsmithClient -->
+  <path d="M 715 250 Q 760 320 800 380" stroke="#fb7185" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="725" y="320" font-family="JetBrains Mono" font-size="10" fill="#fb7185">import</text>
+
+  <!-- Sections -> data.ts -->
+  <path d="M 715 380 Q 760 480 800 560" stroke="#a78bfa" stroke-width="1.5" fill="none" marker-end="url(#arrViolet)"/>
+  <text x="725" y="490" font-family="JetBrains Mono" font-size="10" fill="#a78bfa">import</text>
+
+  <!-- Utils -> SaaS -->
+  <path d="M 1040 200 L 1115 220" stroke="#fbbf24" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="1050" y="195" font-family="JetBrains Mono" font-size="10" fill="#fbbf24">HTTPS POST</text>
+
+  <path d="M 1040 390 L 1115 400" stroke="#fb7185" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="1050" y="385" font-family="JetBrains Mono" font-size="10" fill="#fb7185">HTTPS GET</text>
+</svg>
+
+<div class="cards">
+  <div class="card">
+    <div class="t">Pipeline interno</div>
+    <div class="v">Page → Layout → Sections</div>
+    <div class="d">Cada `.astro` compone secciones, que a su vez consumen cards y átomos shared.</div>
+  </div>
+  <div class="card">
+    <div class="t">Lógica TS</div>
+    <div class="v">2 utils + 1 datasource</div>
+    <div class="d">apiChatGpt y flagsmithClient son los únicos puntos de salida HTTP. data.ts es contenido tipado.</div>
+  </div>
+  <div class="card">
+    <div class="t">React Islands</div>
+    <div class="v">.jsx hidratados</div>
+    <div class="d">ChatComponent y MessageComponent (chat AI), Toast, Spinner, BtnLink, LogoGaraje88.</div>
+  </div>
+</div>
+
+<div class="legend">
+  <span><i style="background:#22d3ee"></i>Pages / Layout</span>
+  <span><i style="background:#a78bfa"></i>UI components</span>
+  <span><i style="background:#34d399"></i>Utils (HTTP)</span>
+  <span><i style="background:#fb7185"></i>Auth / Flags</span>
+  <span><i style="background:#fbbf24"></i>SaaS externo</span>
+</div>
+</body>
+</html>

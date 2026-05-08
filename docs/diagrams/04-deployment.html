@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>C4 · Despliegue — garaje88.github.io</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #020617;
+    background-image:
+      linear-gradient(#1e293b 1px, transparent 1px),
+      linear-gradient(90deg, #1e293b 1px, transparent 1px);
+    background-size: 40px 40px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #e2e8f0;
+    padding: 32px;
+    min-height: 100vh;
+  }
+  .header { text-align: center; margin-bottom: 24px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f8fafc; letter-spacing: 0.5px; }
+  .header .sub { font-size: 12px; color: #64748b; margin-top: 6px; }
+  .pulse-dot {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: #fbbf24; margin-right: 8px; vertical-align: middle;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(251,191,36,0.6); }
+    50% { box-shadow: 0 0 0 8px rgba(251,191,36,0); }
+  }
+  svg { display: block; margin: 0 auto; max-width: 100%; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+  .card { background: rgba(15,23,42,0.7); border: 1px solid #1e293b; border-radius: 8px; padding: 14px 16px; }
+  .card .t { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; }
+  .card .v { font-size: 14px; color: #f1f5f9; margin-top: 6px; font-weight: 600; }
+  .card .d { font-size: 11px; color: #94a3b8; margin-top: 6px; line-height: 1.5; }
+  .legend { text-align: center; margin-top: 20px; font-size: 11px; color: #64748b; }
+  .legend span { display: inline-block; margin: 0 10px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1><span class="pulse-dot"></span>C4 · Nivel 4 — Despliegue e infraestructura</h1>
+  <div class="sub">push main → GitHub Actions → GitHub Pages CDN → navegador del usuario</div>
+</div>
+
+<svg viewBox="0 0 1340 780" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrEmer" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrCyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrAmb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrRose" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#fb7185"/>
+    </marker>
+  </defs>
+
+  <!-- Boundary 1: Dev local -->
+  <rect x="40" y="60" width="280" height="280" rx="14" fill="none"
+        stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <text x="60" y="86" font-family="JetBrains Mono" font-size="12" fill="#94a3b8">[ Workstation · desarrollo local ]</text>
+
+  <rect x="65" y="110" width="230" height="80" rx="10" fill="#0f172a"/>
+  <rect x="65" y="110" width="230" height="80" rx="10" fill="#34d399" fill-opacity="0.12"
+        stroke="#34d399" stroke-width="2"/>
+  <text x="180" y="138" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#34d399">Astro Dev Server</text>
+  <text x="180" y="158" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[npm run dev]</text>
+  <text x="180" y="178" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">localhost:4321</text>
+
+  <rect x="65" y="210" width="230" height="100" rx="10" fill="#0f172a"/>
+  <rect x="65" y="210" width="230" height="100" rx="10" fill="#94a3b8" fill-opacity="0.12"
+        stroke="#94a3b8" stroke-width="2"/>
+  <text x="180" y="240" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#e2e8f0">.env (local)</text>
+  <text x="180" y="262" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">PUBLIC_OPENAI_*</text>
+  <text x="180" y="280" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">PUBLIC_FLAGSMITH_*</text>
+  <text x="180" y="298" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#64748b">.gitignore (no se versiona)</text>
+
+  <!-- Boundary 2: Repo + CI -->
+  <rect x="360" y="60" width="380" height="700" rx="14" fill="none"
+        stroke="#34d399" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <text x="380" y="86" font-family="JetBrains Mono" font-size="12" fill="#34d399">[ GitHub · repo + CI/CD ]</text>
+
+  <rect x="385" y="110" width="330" height="100" rx="10" fill="#0f172a"/>
+  <rect x="385" y="110" width="330" height="100" rx="10" fill="#34d399" fill-opacity="0.12"
+        stroke="#34d399" stroke-width="2"/>
+  <text x="550" y="138" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#34d399">Repositorio · main</text>
+  <text x="550" y="158" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[GitHub · garaje88/garaje88.github.io]</text>
+  <text x="550" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">trigger: push main · workflow_dispatch</text>
+  <text x="550" y="196" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">branches: main · develop · feature/*</text>
+
+  <rect x="385" y="240" width="330" height="180" rx="10" fill="#0f172a"/>
+  <rect x="385" y="240" width="330" height="180" rx="10" fill="#34d399" fill-opacity="0.10"
+        stroke="#34d399" stroke-width="2"/>
+  <text x="550" y="270" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#34d399">Workflow build</text>
+  <text x="550" y="288" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[ubuntu-latest · withastro/action@v2]</text>
+  <text x="550" y="312" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">1. checkout (actions/checkout@v4)</text>
+  <text x="550" y="330" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">2. install + astro check + astro build</text>
+  <text x="550" y="348" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">3. upload artifact ./dist</text>
+  <text x="550" y="372" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#e2e8f0">env: PUBLIC_OPENAI_*, PUBLIC_FLAGSMITH_*</text>
+  <text x="550" y="390" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">desde GitHub Variables/Secrets</text>
+  <text x="550" y="408" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#64748b">.github/workflows/deploy.yml</text>
+
+  <rect x="385" y="450" width="330" height="120" rx="10" fill="#0f172a"/>
+  <rect x="385" y="450" width="330" height="120" rx="10" fill="#34d399" fill-opacity="0.10"
+        stroke="#34d399" stroke-width="2"/>
+  <text x="550" y="478" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#34d399">Workflow deploy</text>
+  <text x="550" y="498" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[needs: build]</text>
+  <text x="550" y="522" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">actions/deploy-pages@v4</text>
+  <text x="550" y="540" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">environment: github-pages</text>
+  <text x="550" y="558" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">permissions: pages:write · id-token:write</text>
+
+  <rect x="385" y="600" width="330" height="120" rx="10" fill="#0f172a"/>
+  <rect x="385" y="600" width="330" height="120" rx="10" fill="#fb7185" fill-opacity="0.12"
+        stroke="#fb7185" stroke-width="2"/>
+  <text x="550" y="628" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#fb7185">Secrets &amp; Variables</text>
+  <text x="550" y="648" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[GitHub repo settings]</text>
+  <text x="550" y="672" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#e2e8f0">secrets: PUBLIC_OPENAI_API_KEY · _ORGANIZATION</text>
+  <text x="550" y="688" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#e2e8f0">secrets: PUBLIC_FLAGSMITH_API_KEY</text>
+  <text x="550" y="704" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#e2e8f0">vars: PUBLIC_OPENAI_API_BASE_URL · _MODEL</text>
+
+  <!-- Boundary 3: Edge -->
+  <rect x="780" y="60" width="280" height="380" rx="14" fill="none"
+        stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <text x="800" y="86" font-family="JetBrains Mono" font-size="12" fill="#22d3ee">[ Edge · GitHub Pages ]</text>
+
+  <rect x="800" y="110" width="240" height="140" rx="10" fill="#0f172a"/>
+  <rect x="800" y="110" width="240" height="140" rx="10" fill="#22d3ee" fill-opacity="0.15"
+        stroke="#22d3ee" stroke-width="2.5"/>
+  <text x="920" y="140" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#22d3ee">GitHub Pages</text>
+  <text x="920" y="160" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[CDN global · TLS]</text>
+  <text x="920" y="184" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">https://garaje88.github.io</text>
+  <text x="920" y="202" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">sirve /dist (HTML+JS+CSS)</text>
+  <text x="920" y="222" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#e2e8f0">cache · gzip · http2</text>
+
+  <rect x="800" y="280" width="240" height="120" rx="10" fill="#0f172a"/>
+  <rect x="800" y="280" width="240" height="120" rx="10" fill="#a78bfa" fill-opacity="0.12"
+        stroke="#a78bfa" stroke-width="2"/>
+  <text x="920" y="308" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#a78bfa">Bundle estático</text>
+  <text x="920" y="328" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[/dist artifact]</text>
+  <text x="920" y="352" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">8 HTML · JS chunks · CSS · /images</text>
+  <text x="920" y="370" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">env vars inlinadas en build</text>
+
+  <!-- Boundary 4: SaaS runtime -->
+  <rect x="1100" y="60" width="220" height="700" rx="14" fill="none"
+        stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <text x="1120" y="86" font-family="JetBrains Mono" font-size="12" fill="#fbbf24">[ SaaS · runtime ]</text>
+
+  <rect x="1115" y="120" width="190" height="120" rx="10" fill="#0f172a"/>
+  <rect x="1115" y="120" width="190" height="120" rx="10" fill="#fbbf24" fill-opacity="0.12"
+        stroke="#fbbf24" stroke-width="2"/>
+  <text x="1210" y="150" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#fbbf24">OpenAI</text>
+  <text x="1210" y="170" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[Chat completions]</text>
+  <text x="1210" y="194" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">latencia 0.5-3s</text>
+  <text x="1210" y="212" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">cuota por API key</text>
+
+  <rect x="1115" y="280" width="190" height="120" rx="10" fill="#0f172a"/>
+  <rect x="1115" y="280" width="190" height="120" rx="10" fill="#fb7185" fill-opacity="0.12"
+        stroke="#fb7185" stroke-width="2"/>
+  <text x="1210" y="310" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#fb7185">Flagsmith</text>
+  <text x="1210" y="330" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[Feature flags]</text>
+  <text x="1210" y="354" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">cache local axios</text>
+  <text x="1210" y="372" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">tenant identifier-based</text>
+
+  <rect x="1115" y="440" width="190" height="120" rx="10" fill="#0f172a"/>
+  <rect x="1115" y="440" width="190" height="120" rx="10" fill="#94a3b8" fill-opacity="0.12"
+        stroke="#94a3b8" stroke-width="2"/>
+  <text x="1210" y="470" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#e2e8f0">Google Fonts</text>
+  <text x="1210" y="490" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[fonts.googleapis.com]</text>
+  <text x="1210" y="514" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">Raleway 300/400/500/600/700</text>
+
+  <rect x="1115" y="600" width="190" height="120" rx="10" fill="#0f172a"/>
+  <rect x="1115" y="600" width="190" height="120" rx="10" fill="#94a3b8" fill-opacity="0.10"
+        stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="1210" y="630" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#e2e8f0">Visitor browser</text>
+  <text x="1210" y="650" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#cbd5e1">[Chrome/Firefox/Safari]</text>
+  <text x="1210" y="674" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">descarga + ejecuta JS</text>
+  <text x="1210" y="690" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#94a3b8">localStorage(theme)</text>
+
+  <!-- Flechas de pipeline -->
+  <path d="M 295 150 L 385 155" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#arrEmer)"/>
+  <text x="305" y="142" font-family="JetBrains Mono" font-size="10" fill="#34d399">git push</text>
+
+  <path d="M 550 210 L 550 240" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#arrEmer)"/>
+  <path d="M 550 420 L 550 450" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#arrEmer)"/>
+  <path d="M 550 600 L 550 570" stroke="#fb7185" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrRose)"/>
+  <text x="555" y="588" font-family="JetBrains Mono" font-size="9" fill="#fb7185">inject</text>
+
+  <path d="M 715 510 Q 770 360 800 250" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#arrCyan)"/>
+  <text x="730" y="380" font-family="JetBrains Mono" font-size="10" fill="#22d3ee">deploy ./dist</text>
+
+  <path d="M 920 400 L 920 440" stroke="#475569" stroke-width="1" fill="none" stroke-dasharray="4,3"/>
+
+  <!-- Pages → Browser → SaaS -->
+  <path d="M 1040 200 L 1115 180" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#arrCyan)"/>
+  <text x="1050" y="175" font-family="JetBrains Mono" font-size="10" fill="#22d3ee">HTTPS</text>
+
+  <path d="M 1040 660 Q 1080 480 1115 340" stroke="#fb7185" stroke-width="1.5" fill="none" marker-end="url(#arrRose)"/>
+  <path d="M 1040 660 Q 1080 460 1115 200" stroke="#fbbf24" stroke-width="1.5" fill="none" marker-end="url(#arrAmb)"/>
+  <path d="M 1040 660 Q 1075 580 1115 510" stroke="#94a3b8" stroke-width="1" fill="none" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+</svg>
+
+<div class="cards">
+  <div class="card">
+    <div class="t">Modelo de despliegue</div>
+    <div class="v">Static · CI-driven</div>
+    <div class="d">Sin servidor propio. Todo cambio se despliega automáticamente al merge a main.</div>
+  </div>
+  <div class="card">
+    <div class="t">Ambientes</div>
+    <div class="v">prod único + dev local</div>
+    <div class="d">No hay staging ni preview deployments. Convención: probar en local antes de mergear.</div>
+  </div>
+  <div class="card">
+    <div class="t">Costo / SLA</div>
+    <div class="v">Plan free</div>
+    <div class="d">GitHub Pages gratis. Costos variables: cuota OpenAI · plan Flagsmith.</div>
+  </div>
+</div>
+
+<div class="legend">
+  <span><i style="background:#22d3ee"></i>Edge / CDN</span>
+  <span><i style="background:#34d399"></i>Compute / CI</span>
+  <span><i style="background:#a78bfa"></i>Artefactos</span>
+  <span><i style="background:#fb7185"></i>Secretos / Auth</span>
+  <span><i style="background:#fbbf24"></i>SaaS</span>
+  <span><i style="background:#94a3b8"></i>Externos</span>
+</div>
+</body>
+</html>
